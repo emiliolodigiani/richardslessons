@@ -21,9 +21,11 @@ body {
 }
 
 .site-header {
-  background: var(--ink);
+  background:
+    linear-gradient(rgba(15, 19, 30, 0.72), rgba(15, 19, 30, 0.82)),
+    url("images/header-drummer.jpg") center 35% / cover no-repeat var(--ink);
   color: #fff;
-  padding: 2.5rem 1.5rem 2rem;
+  padding: 3.5rem 1.5rem 2.5rem;
   text-align: center;
 }
 
@@ -36,7 +38,12 @@ body {
 .tagline {
   max-width: 38rem;
   margin: 0 auto 1.25rem;
-  color: #cfd4dd;
+  color: #dde1e8;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.site-header h1 {
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
 }
 
 .site-nav a {

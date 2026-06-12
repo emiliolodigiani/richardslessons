@@ -1,4 +1,4 @@
-# Richard Lessons 🥁
+# Richard's lessons 🥁
 
 Sito statico con i groove delle lezioni di batteria di Richard e **50 pattern
 famosi numerati**, tutti consultabili come spartito, ascoltabili in pagina e

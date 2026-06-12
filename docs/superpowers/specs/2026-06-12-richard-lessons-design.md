@@ -50,8 +50,8 @@ Creare il groove in GrooveScribe → copiare l'URL → incollare la query string
 
 ## Deploy
 
-Repo pubblico `emiliolodigiani/richard-lessons`, GitHub Pages da `main` (root).
-URL: https://emiliolodigiani.github.io/richard-lessons/
+Repo pubblico `emiliolodigiani/richardslessons`, GitHub Pages da `main` (root).
+URL: https://emiliolodigiani.github.io/richardslessons/
 (nota: l'URL Pages deriva dal nome del repo).
 
 ## Verifica

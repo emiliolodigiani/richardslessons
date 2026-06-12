@@ -5,7 +5,7 @@ famosi numerati**, tutti consultabili come spartito, ascoltabili in pagina e
 apribili in [GrooveScribe](https://github.com/montulli/GrooveScribe) per
 esercitarsi con metronomo e controllo della velocità.
 
-**Sito:** https://emiliolodigiani.github.io/richard-lessons/
+**Sito:** https://emiliolodigiani.github.io/richardslessons/
 
 ## Struttura
 

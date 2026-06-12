@@ -1,0 +1,169 @@
+/* Richard Lessons — stile della pagina indice */
+
+:root {
+  --ink: #1f2430;
+  --paper: #f6f4ef;
+  --card: #ffffff;
+  --accent: #c0392b;
+  --accent-dark: #92281c;
+  --muted: #6b7280;
+  --line: #e3ded4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Lato", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.site-header {
+  background: var(--ink);
+  color: #fff;
+  padding: 2.5rem 1.5rem 2rem;
+  text-align: center;
+}
+
+.site-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.2rem;
+  letter-spacing: 0.02em;
+}
+
+.tagline {
+  max-width: 38rem;
+  margin: 0 auto 1.25rem;
+  color: #cfd4dd;
+}
+
+.site-nav a {
+  display: inline-block;
+  margin: 0 0.4rem;
+  padding: 0.4rem 1.1rem;
+  border: 1px solid #4a5160;
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.site-nav a:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+main {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1rem 1rem 3rem;
+}
+
+section h2 {
+  font-size: 1.6rem;
+  margin: 2.5rem 0 0.25rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 3px solid var(--accent);
+}
+
+.section-intro {
+  color: var(--muted);
+  margin: 0.5rem 0 1.5rem;
+}
+
+.preset-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1rem 1.25rem 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 1px 3px rgba(31, 36, 48, 0.06);
+}
+
+.card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.preset-card h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.num {
+  display: inline-block;
+  min-width: 1.9em;
+  margin-right: 0.55em;
+  padding: 0.05em 0.35em;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.open-btn {
+  white-space: nowrap;
+  padding: 0.35rem 0.9rem;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.open-btn:hover { background: var(--accent-dark); }
+
+.notes {
+  color: var(--muted);
+  margin: 0.5rem 0 0.75rem;
+  font-size: 0.95rem;
+}
+
+.groove-display {
+  overflow-x: auto;
+}
+
+.groove-display .loading {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Lo spartito SVG generato da GrooveScribe si adatta alla card */
+.groove-display svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.site-footer {
+  background: var(--ink);
+  color: #cfd4dd;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  font-size: 0.92rem;
+}
+
+.site-footer p {
+  max-width: 44rem;
+  margin: 0 auto 0.9rem;
+}
+
+.site-footer a {
+  color: #ffb4a8;
+}
+
+.footer-meta {
+  color: #8b93a3;
+}
+
+@media (max-width: 480px) {
+  .site-header h1 { font-size: 1.7rem; }
+  .card-head { flex-direction: column; align-items: flex-start; }
+}

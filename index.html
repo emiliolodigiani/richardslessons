@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Richard Lessons — Groove di batteria</title>
+  <meta name="description" content="Gli esercizi delle lezioni di batteria di Richard e 50 pattern famosi, da ascoltare e aprire in GrooveScribe.">
+  <link rel="stylesheet" href="style.css">
+  <script src="gscribe/js/groove_display.js"></script>
+  <script src="presets.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>🥁 Richard Lessons</h1>
+    <p class="tagline">Gli esercizi delle lezioni e i groove che hanno fatto la storia.
+       Premi play per ascoltare, oppure apri il groove in GrooveScribe per esercitarti
+       con metronomo e controllo della velocità.</p>
+    <nav class="site-nav">
+      <a href="#lezioni">Lezioni</a>
+      <a href="#pattern-famosi">Pattern famosi</a>
+    </nav>
+  </header>
+
+  <main id="contenuto">
+    <noscript><p>Questa pagina richiede JavaScript per mostrare gli spartiti.</p></noscript>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Questo sito esiste grazie a
+      <a href="https://github.com/montulli/GrooveScribe">GrooveScribe</a>,
+      lo straordinario editor di groove per batteristi creato da
+      <a href="https://en.wikipedia.org/wiki/Lou_Montulli">Lou Montulli</a> e
+      <a href="https://www.mikeslessons.com/">Mike Johnston</a>.
+      Grazie di cuore agli autori per averlo rilasciato come software libero.
+    </p>
+    <p>
+      GrooveScribe è distribuito con licenza
+      <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GPL v2</a>
+      (<a href="gscribe/LICENSE.txt">testo della licenza</a>) ed è disponibile anche
+      nell'istanza pubblica ufficiale:
+      <a href="https://montulli.github.io/GrooveScribe/">montulli.github.io/GrooveScribe</a>.
+      Una copia completa è inclusa in questo sito nella cartella
+      <a href="gscribe/">gscribe/</a>.
+    </p>
+    <p class="footer-meta">
+      <a href="https://github.com/emiliolodigiani/richard-lessons">Codice sorgente di questo sito</a>
+      — anch'esso GPL v2.
+    </p>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var SECTIONS = ["Lezioni", "Pattern famosi"];
+      var SECTION_IDS = { "Lezioni": "lezioni", "Pattern famosi": "pattern-famosi" };
+      var SECTION_INTRO = {
+        "Lezioni": "Gli esercizi assegnati durante le lezioni, in ordine.",
+        "Pattern famosi": "50 groove famosi, numerati. Le trascrizioni sono versioni didattiche: dove indicato “semplificato”, l'originale è più elaborato."
+      };
+
+      var main = document.getElementById("contenuto");
+
+      SECTIONS.forEach(function (sectionName) {
+        var presets = PRESETS.filter(function (p) { return p.section === sectionName; });
+        if (presets.length === 0) return;
+
+        var section = document.createElement("section");
+        section.id = SECTION_IDS[sectionName];
+        section.innerHTML = "<h2>" + sectionName + "</h2><p class='section-intro'>" + SECTION_INTRO[sectionName] + "</p>";
+
+        presets.forEach(function (preset, i) {
+          var card = document.createElement("article");
+          card.className = "preset-card";
+
+          var displayId = "groove-" + SECTION_IDS[sectionName] + "-" + i;
+          var badge = preset.num ? "<span class='num'>" + preset.num + "</span>" : "";
+          var openUrl = "gscribe/index.html?" + preset.groove;
+
+          card.innerHTML =
+            "<div class='card-head'>" +
+              "<h3>" + badge + preset.title + "</h3>" +
+              "<a class='open-btn' href='" + openUrl + "' title='Apri questo groove nell&apos;editor GrooveScribe'>Apri in GrooveScribe ↗</a>" +
+            "</div>" +
+            "<p class='notes'>" + preset.notes + "</p>" +
+            "<div class='groove-display' id='" + displayId + "'><span class='loading'>Carico lo spartito…</span></div>";
+
+          card.dataset.displayId = displayId;
+          card.dataset.groove = preset.groove;
+          section.appendChild(card);
+        });
+
+        main.appendChild(section);
+      });
+
+      // Renderizza gli spartiti solo quando le card entrano nella viewport:
+      // con 50+ groove il render immediato di tutti gli SVG bloccherebbe la pagina.
+      window.addEventListener("load", function () {
+        var render = function (card) {
+          var target = document.getElementById(card.dataset.displayId);
+          target.innerHTML = "";
+          GrooveDisplay.AddGrooveDisplayToElementId(card.dataset.displayId, "?" + card.dataset.groove, true, false, false);
+        };
+
+        var cards = document.querySelectorAll(".preset-card");
+        if (!("IntersectionObserver" in window)) {
+          cards.forEach(render);
+          return;
+        }
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              observer.unobserve(entry.target);
+              render(entry.target);
+            }
+          });
+        }, { rootMargin: "600px" });
+        cards.forEach(function (card) { observer.observe(card); });
+      });
+    })();
+  </script>
+
+</body>
+</html>

@@ -6,7 +6,7 @@
   <title>Richard's lessons — Groove di batteria</title>
   <meta name="description" content="Gli esercizi delle lezioni di batteria di Richard e 50 pattern famosi, da ascoltare e aprire in GrooveScribe.">
   <link rel="stylesheet" href="https://fonts.bunny.net/css?family=oswald:200,500,700|lato:300,400,700,900">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
   <script src="gscribe/js/groove_display.js"></script>
   <script src="presets.js?v=2"></script>
 </head>
@@ -17,11 +17,12 @@
     <p class="tagline">Gli esercizi delle lezioni e i groove che hanno fatto la storia.
        Premi play per ascoltare, oppure apri il groove in GrooveScribe per esercitarti
        con metronomo e controllo della velocità.</p>
-    <nav class="site-nav" role="tablist">
-      <a href="#lezioni" class="tab" data-section="lezioni" role="tab">Lezioni</a>
-      <a href="#pattern-famosi" class="tab" data-section="pattern-famosi" role="tab">Pattern famosi</a>
-    </nav>
   </header>
+
+  <nav class="tab-bar" role="tablist">
+    <a href="#lezioni" class="tab" data-section="lezioni" role="tab">Lezioni<span class="n" data-count="Lezioni"></span></a>
+    <a href="#pattern-famosi" class="tab" data-section="pattern-famosi" role="tab">Pattern famosi<span class="n" data-count="Pattern famosi"></span></a>
+  </nav>
 
   <main id="contenuto">
     <noscript><p>Questa pagina richiede JavaScript per mostrare gli spartiti.</p></noscript>
@@ -97,8 +98,13 @@
         main.appendChild(section);
       });
 
+      // Contatori sulle tab
+      document.querySelectorAll("[data-count]").forEach(function (el) {
+        el.textContent = PRESETS.filter(function (p) { return p.section === el.dataset.count; }).length;
+      });
+
       // Tab: una sezione visibile alla volta, selezionabile anche via hash (#lezioni / #pattern-famosi)
-      var tabs = document.querySelectorAll(".site-nav .tab");
+      var tabs = document.querySelectorAll(".tab-bar .tab");
       function showTab(sectionId) {
         SECTIONS.forEach(function (name) {
           var el = document.getElementById(SECTION_IDS[name]);

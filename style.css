@@ -55,6 +55,13 @@ body {
   border-color: var(--accent);
 }
 
+.site-nav a.active {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+section[hidden] { display: none; }
+
 main {
   max-width: 52rem;
   margin: 0 auto;

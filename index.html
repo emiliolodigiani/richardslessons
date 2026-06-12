@@ -16,9 +16,9 @@
     <p class="tagline">Gli esercizi delle lezioni e i groove che hanno fatto la storia.
        Premi play per ascoltare, oppure apri il groove in GrooveScribe per esercitarti
        con metronomo e controllo della velocità.</p>
-    <nav class="site-nav">
-      <a href="#lezioni">Lezioni</a>
-      <a href="#pattern-famosi">Pattern famosi</a>
+    <nav class="site-nav" role="tablist">
+      <a href="#lezioni" class="tab" data-section="lezioni" role="tab">Lezioni</a>
+      <a href="#pattern-famosi" class="tab" data-section="pattern-famosi" role="tab">Pattern famosi</a>
     </nav>
   </header>
 
@@ -94,6 +94,27 @@
 
         main.appendChild(section);
       });
+
+      // Tab: una sezione visibile alla volta, selezionabile anche via hash (#lezioni / #pattern-famosi)
+      var tabs = document.querySelectorAll(".site-nav .tab");
+      function showTab(sectionId) {
+        SECTIONS.forEach(function (name) {
+          var el = document.getElementById(SECTION_IDS[name]);
+          if (el) el.hidden = SECTION_IDS[name] !== sectionId;
+        });
+        tabs.forEach(function (tab) {
+          tab.classList.toggle("active", tab.dataset.section === sectionId);
+        });
+      }
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function (e) {
+          e.preventDefault();
+          history.replaceState(null, "", "#" + tab.dataset.section);
+          showTab(tab.dataset.section);
+        });
+      });
+      var initial = location.hash.replace("#", "");
+      showTab(initial === "pattern-famosi" ? "pattern-famosi" : "lezioni");
 
       // Renderizza gli spartiti solo quando le card entrano nella viewport:
       // con 50+ groove il render immediato di tutti gli SVG bloccherebbe la pagina.

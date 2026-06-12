@@ -19,9 +19,39 @@ const PRESETS = [
   // ------------------------------------------------------------------
   {
     section: "Lezioni",
-    title: "Esempio — Rock base in ottavi",
+    title: "Lezione 1 — Rock base in ottavi",
     notes: "Il primo groove di tutti: hi-hat in ottavi, rullante sul 2 e sul 4, cassa sull'1 e sul 3.",
     groove: "TimeSig=4/4&Div=8&Tempo=80&Measures=1&H=|xxxxxxxx|&S=|--O---O-|&K=|o---o---|"
+  },
+  {
+    section: "Lezioni",
+    title: "Lezione 2 — Variazione di cassa",
+    notes: "Stesso groove, ma la cassa aggiunge il levare del 2: ascolta come cambia il movimento.",
+    groove: "TimeSig=4/4&Div=8&Tempo=80&Measures=1&H=|xxxxxxxx|&S=|--O---O-|&K=|o--oo---|"
+  },
+  {
+    section: "Lezioni",
+    title: "Lezione 3 — Sedicesimi sul charleston",
+    notes: "Mano destra in sedicesimi (o due mani alternate): parti lento e resta rilassato.",
+    groove: "TimeSig=4/4&Div=16&Tempo=70&Measures=1&H=|xxxxxxxxxxxxxxxx|&S=|----O-------O---|&K=|o-------o-------|"
+  },
+  {
+    section: "Lezioni",
+    title: "Lezione 4 — Apertura del charleston",
+    notes: "Apri il charleston sul levare del 4 e richiudilo sull'1: il “tssss” che dà respiro al groove.",
+    groove: "TimeSig=4/4&Div=8&Tempo=85&Measures=1&H=|xxxxxxxo|&S=|--O---O-|&K=|o---o---|"
+  },
+  {
+    section: "Lezioni",
+    title: "Lezione 5 — Prime ghost note",
+    notes: "Colpi “fantasma” leggerissimi tra i backbeat: il rullante accentato deve restare molto più forte.",
+    groove: "TimeSig=4/4&Div=16&Tempo=75&Measures=1&H=|x-x-x-x-x-x-x-x-|&S=|-g--O--g-g--O--g|&K=|o-------o-------|"
+  },
+  {
+    section: "Lezioni",
+    title: "Lezione 6 — Shuffle base",
+    notes: "Terzine con il colpo centrale omesso: il “galoppo” del blues. Conta 1-tri-pl, 2-tri-pl…",
+    groove: "TimeSig=4/4&Div=12&Tempo=80&Measures=1&H=|x-xx-xx-xx-x|&S=|---O-----O--|&K=|o-----o-----|"
   },
 
   // ------------------------------------------------------------------
@@ -58,8 +88,8 @@ const PRESETS = [
   {
     section: "Pattern famosi", num: 5,
     title: "When the Levee Breaks — Led Zeppelin",
-    notes: "John Bonham. Il groove più campionato del rock: pesante, dietro al tempo.",
-    groove: "TimeSig=4/4&Div=16&Title=When%20the%20Levee%20Breaks&Tempo=71&Measures=1&H=|x-x-x-x-x-x-x-x-|&S=|----O-------O---|&K=|o-o------oo-----|"
+    notes: "John Bonham. Il groove più campionato del rock: pesante, dietro al tempo. Due battute: la seconda chiude con la cassa in levare.",
+    groove: "TimeSig=4/4&Div=16&Title=When%20the%20Levee%20Breaks&Tempo=71&Measures=2&H=|x-x-x-x-x-x-x-x-|x-x-x-x-x-x-x-x-|&S=|----O-------O---|----O-------O---|&K=|o-o------oo-----|o-o------oo---o-|"
   },
   {
     section: "Pattern famosi", num: 6,
@@ -102,8 +132,8 @@ const PRESETS = [
   {
     section: "Pattern famosi", num: 12,
     title: "Superstition — Stevie Wonder",
-    notes: "Suonata da Stevie stesso. Sedicesimi sul charleston e cassa funky (semplificato).",
-    groove: "TimeSig=4/4&Div=16&Title=Superstition&Tempo=101&Measures=1&H=|xxxxxxxxxxxxxxxx|&S=|----O-------O---|&K=|o------o-o------|"
+    notes: "Suonata da Stevie stesso. Sedicesimi sul charleston e cassa funky che varia nella seconda battuta (semplificato).",
+    groove: "TimeSig=4/4&Div=16&Title=Superstition&Tempo=101&Measures=2&H=|xxxxxxxxxxxxxxxx|xxxxxxxxxxxxxxxx|&S=|----O-------O---|----O-------O---|&K=|o------o-o------|o------o-o----o-|"
   },
   {
     section: "Pattern famosi", num: 13,
@@ -128,8 +158,8 @@ const PRESETS = [
   {
     section: "Pattern famosi", num: 16,
     title: "Funky Drummer — James Brown",
-    notes: "Clyde Stubblefield. Il break più campionato di sempre: ghost note e charleston aperto sul levare del 3.",
-    groove: "TimeSig=4/4&Div=16&Title=Funky%20Drummer&Tempo=100&Measures=1&H=|xxxxxxxxxxxoxxxx|&S=|----O--g-g-O---o|&K=|o-----o---o-----|"
+    notes: "Clyde Stubblefield. Il break più campionato di sempre: ghost note e charleston aperto sul levare del 3. La seconda battuta accenta il finale.",
+    groove: "TimeSig=4/4&Div=16&Title=Funky%20Drummer&Tempo=100&Measures=2&H=|xxxxxxxxxxxoxxxx|xxxxxxxxxxxoxxxx|&S=|----O--g-g-O---o|----O--g-g-O---O|&K=|o-----o---o-----|o-----o---o-----|"
   },
   {
     section: "Pattern famosi", num: 17,
@@ -140,14 +170,14 @@ const PRESETS = [
   {
     section: "Pattern famosi", num: 18,
     title: "Cissy Strut — The Meters",
-    notes: "Zigaboo Modeliste. Funk di New Orleans, sincopato e “sporco” (semplificato).",
-    groove: "TimeSig=4/4&Div=16&Title=Cissy%20Strut&Tempo=90&Measures=1&H=|x-x-x-x-x-x-x-x-|&S=|----O-----O--O--|&K=|o--o--o-----o---|"
+    notes: "Zigaboo Modeliste. Funk di New Orleans su due battute: domanda e risposta tra cassa e rullante (semplificato).",
+    groove: "TimeSig=4/4&Div=16&Title=Cissy%20Strut&Tempo=90&Measures=2&H=|x-x-x-x-x-x-x-x-|x-x-x-x-x-x-x-x-|&S=|----O-----O--O--|----O-----O-----|&K=|o--o--o-----o---|o--o--o---o-o---|"
   },
   {
     section: "Pattern famosi", num: 19,
     title: "Chameleon — Herbie Hancock",
-    notes: "Harvey Mason. Il groove funk-fusion per eccellenza (semplificato).",
-    groove: "TimeSig=4/4&Div=16&Title=Chameleon&Tempo=94&Measures=1&H=|x-x-x-x-x-x-x-x-|&S=|----O-------O---|&K=|o------o--o----o|"
+    notes: "Harvey Mason. Il groove funk-fusion per eccellenza, su due battute (semplificato).",
+    groove: "TimeSig=4/4&Div=16&Title=Chameleon&Tempo=94&Measures=2&H=|x-x-x-x-x-x-x-x-|x-x-x-x-x-x-x-x-|&S=|----O-------O---|----O-------O---|&K=|o------o--o----o|o------o--o--o--|"
   },
   {
     section: "Pattern famosi", num: 20,
@@ -184,8 +214,8 @@ const PRESETS = [
   {
     section: "Pattern famosi", num: 25,
     title: "Boom bap — hip-hop classico",
-    notes: "Il beat alla DJ Premier / Pete Rock: cassa “boom”, rullante “bap”.",
-    groove: "TimeSig=4/4&Div=16&Title=Boom%20Bap&Tempo=90&Measures=1&H=|x-x-x-x-x-x-x-x-|&S=|----O-------O---|&K=|o-----o---o-----|"
+    notes: "Il beat alla DJ Premier / Pete Rock: cassa “boom”, rullante “bap”. Due battute con la cassa che risponde.",
+    groove: "TimeSig=4/4&Div=16&Title=Boom%20Bap&Tempo=90&Measures=2&H=|x-x-x-x-x-x-x-x-|x-x-x-x-x-x-x-x-|&S=|----O-------O---|----O-------O---|&K=|o-----o---o-----|o-----o-----o-o-|"
   },
   {
     section: "Pattern famosi", num: 26,
@@ -234,8 +264,8 @@ const PRESETS = [
   {
     section: "Pattern famosi", num: 33,
     title: "Bossa nova",
-    notes: "Cross-stick sulla clave 3-2, piede “bossa” costante: João Gilberto in batteria.",
-    groove: "TimeSig=4/4&Div=16&Title=Bossa%20Nova&Tempo=130&Measures=1&H=|x-x-x-x-x-x-x-x-|&S=|x--x--x---x-x---|&K=|o--o----o--o----|"
+    notes: "Cross-stick sulla clave 3-2 (che si completa in due battute), piede “bossa” costante: João Gilberto in batteria.",
+    groove: "TimeSig=4/4&Div=16&Title=Bossa%20Nova&Tempo=130&Measures=2&H=|x-x-x-x-x-x-x-x-|x-x-x-x-x-x-x-x-|&S=|x-----x-----x---|----x---x-------|&K=|o--o----o--o----|o--o----o--o----|"
   },
   {
     section: "Pattern famosi", num: 34,
@@ -290,8 +320,8 @@ const PRESETS = [
   {
     section: "Pattern famosi", num: 42,
     title: "Sing Sing Sing — Benny Goodman",
-    notes: "Gene Krupa. Il timpano che ha reso la batteria uno strumento solista.",
-    groove: "TimeSig=4/4&Div=12&Title=Sing%20Sing%20Sing&Tempo=112&Measures=1&H=|------------|&S=|------------|&K=|o-----o-----|&T4=|o-oo-oo-oo-o|"
+    notes: "Gene Krupa. Il timpano che ha reso la batteria uno strumento solista: due battute, la seconda risponde sul rullante.",
+    groove: "TimeSig=4/4&Div=12&Title=Sing%20Sing%20Sing&Tempo=112&Measures=2&H=|------------|------------|&S=|------------|---O-----O--|&K=|o-----o-----|o-----o-----|&T4=|o-oo-oo-oo-o|o-oo-oo-oo-o|"
   },
 
   // --- Country, punk e altro ---
